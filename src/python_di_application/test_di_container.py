@@ -36,5 +36,4 @@ class TestDIContainer(DIContainer):
                 )
         dep_instance = dependency_type(**constructor_arguments)
         self.register_instance(instance_obj=dep_instance)
-        self.apply_post_init_wrappers()
         return self[dependency_type]
