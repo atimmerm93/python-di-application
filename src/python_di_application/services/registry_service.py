@@ -153,7 +153,7 @@ class RegistryService:
         matching_dependencies = [
             dependency
             for dependency in self._registry.values()
-            if dependency.dependency_type is dependency_type
+            if dependency_type in inspect.getmro(dependency.dependency_type)
         ]
         if len(matching_dependencies) > 1:
             raise ValueError(f"Concrete type {dependency_type} is already registered")
